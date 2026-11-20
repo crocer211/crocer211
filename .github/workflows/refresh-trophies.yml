@@ -1,0 +1,32 @@
+name: Refresh trophies
+
+# Re-downloads the trophy cards shown on the profile once a week and commits
+# them only when they changed. Can also be run by hand from the Actions tab.
+on:
+  schedule:
+    - cron: "23 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download trophy cards
+        run: bash .github/scripts/refresh-trophies.sh
+
+      - name: Commit if anything changed
+        run: |
+          if [ -n "$(git status --porcelain assets)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add assets
+            git commit -m "Refresh trophy cards"
+            git push
+          else
+            echo "Trophy cards are already up to date."
+          fi
