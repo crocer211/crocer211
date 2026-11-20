@@ -26,8 +26,8 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=ai,ps,linux&theme=dark" />
-    <img src="https://skillicons.dev/icons?i=ai,ps,linux&theme=light" alt="Illustrator, Photoshop and Linux" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=ai%2Cps%2Clinux&theme=dark" />
+    <img src="https://skillicons.dev/icons?i=ai%2Cps%2Clinux&theme=light" alt="Illustrator, Photoshop and Linux" />
   </picture>
 </p>
 
